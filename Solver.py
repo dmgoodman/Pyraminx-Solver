@@ -1,37 +1,7 @@
 import time
 from Pyraminx import inverse, apply_move, apply_moves, moves
-
-solved = "FLLRRFDFDRDL0000"
-solved_V = ["FL**RF******000*", "FL****DF****000*", "****RFDF****000*",
-            "**LRRF******00*0", "**LR****DR**00*0", "****RF**DR**00*0",
-            "FLLR********0*00", "FL********DL0*00", "**LR******DL0*00",
-            "******DFDR***000", "******DF**DL*000", "********DRDL*000"]
-solved_layer = ["******DFDRDL*000", "FLLR******DL0*00",
-                "**LRRF**DR**00*0", "FL**RFDF****000*"]
-solved_top = ["FLLRRF******0***", "RFFLLR******1***", "LRRFFL******2***",
-              "****RFDFDR***0**", "****FDRDRF***1**", "****DRFRFD***2**",
-              "FL****DF**DL**0*", "LD****FL**FD**1*", "DF****LD**LF**2*",
-              "**LR****DRDL***0", "**RD****LDLR***1", "**DL****RLRD***2"]
-solved_pseudo_V = ["RF**LR******100*", "LR**FL******200*",
-                   "FL**FD******010*", "FL**DR******020*",
-                   "LD**RF******001*", "DF**RF******002*",
-
-                   #TODO
-                   "FL****DF****000*", "FL****DF****000*",
-                   "FL****DF****000*", "FL****DF****000*",
-                   "FL****DF****000*", "FL****DF****000*",
-
-                   "****RFDF****000*", "****RFDF****000*",
-                   "****RFDF****000*", "****RFDF****000*",
-                   "****RFDF****000*", "****RFDF****000*",
-                   
-                   "**LRRF******00*0", "**LR****DR**00*0", "****RF**DR**00*0",
-                   "FLLR********0*00", "FL********DL0*00", "**LR******DL0*00",
-                   "******DFDR***000", "******DF**DL*000", "********DRDL*000"]
-solved_tl4e = []
-solved_1flip = []
-solved_keyhole = []
-solved_face = []
+from SolvedStates import solved, solved_V, solved_layer, solved_top, solved_face
+from SolvedStates import solved_pseudo_V, solved_1flip_top, solved_keyhole_top
 
 phase_1_states = {}
 
