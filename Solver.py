@@ -175,3 +175,18 @@ def solve(scramble, solved_state=solved):
     response = solve_scramble(scramble, solved_state)
     for solution in response:
         print(solution)
+
+#-------------------------------------------------------------------------------
+
+def analyze(scramble):
+    optimal = solve_scramble(scramble)
+    optimal_V = solve_scramble(scramble, solved_state=solved_V)
+    optimal_layer = solve_scramble(scramble, solved_state=solved_layer)
+    optimal_pseudo_V = solve_scramble(scramble, solved_state=solved_pseudo_V)
+
+    print("\n----------------------------\n")
+    print("Analysis:\n")
+    print("The scramble can be solved optimally in " +
+          str(len(optimal[0].split(" "))) + " moves:")
+    for solution in optimal:
+          print("\t" + solution)

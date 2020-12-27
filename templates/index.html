@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pyraminx Solver</title>
+
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+	<body>
+		<h1>Pyraminx Solver</h1>
+
+		<p>Enter scramble:</p>
+		<div class = "col-sm-3">
+			<input type="text" class="form-control" id="scramble" name="scramble" placeholder="">
+		</div>
+
+		<p>Results:</p>
+		<p id="results"></p>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+		</script>
+
+		<script>
+
+			function setup()
+			{
+				$('#scramble').focus();
+				$('#scramble').on('input', getResults);
+			}
+
+			function handleResponse(response)
+			{
+				$('#results').html(response);
+			}
+
+			let request = null;
+
+			function getResults()
+			{
+				let scramble = $('#scramble').val();
+				scramble = encodeURIComponent(scramble);
+				let url = '/results?scramble=' + scramble;
+				if (request != null)
+					request.abort();
+				request = $.ajax(
+					{
+						type: "GET",
+						url: url,
+						success: handleResponse
+					}
+				);
+			}
+
+			$('document').ready(setup);
+
+		</script>
+	</body>
+</html>
